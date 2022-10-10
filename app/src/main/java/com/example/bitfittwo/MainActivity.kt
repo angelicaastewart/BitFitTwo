@@ -1,7 +1,7 @@
 package com.example.bitfittwo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var waterItemViewModel: WaterItemViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
       binding.fragment1Btn.setOnClickListener {
             replaceFragment(Fragment1())
+
 
         }
         binding.fragment2Btn.setOnClickListener {

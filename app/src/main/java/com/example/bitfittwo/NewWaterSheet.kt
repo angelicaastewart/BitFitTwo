@@ -6,6 +6,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import com.example.bitfittwo.databinding.FragmentNewdaysheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -14,6 +15,7 @@ class NewWaterSheet (var waterItem: WaterItem?): BottomSheetDialogFragment(){
 
     private lateinit var binding: FragmentNewdaysheetBinding
     private lateinit var waterItemViewModel: WaterItemViewModel
+    var count = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,6 +34,8 @@ class NewWaterSheet (var waterItem: WaterItem?): BottomSheetDialogFragment(){
         binding.saveButton.setOnClickListener {
             saveAction()
 
+
+
         }
     }
 
@@ -44,7 +48,10 @@ class NewWaterSheet (var waterItem: WaterItem?): BottomSheetDialogFragment(){
         return binding.root
     }
 
+
+
     private fun saveAction(){
+
         var day = binding.theDate.text.toString()
         var gals = binding.theGallons.text.toString()
 
@@ -56,8 +63,7 @@ class NewWaterSheet (var waterItem: WaterItem?): BottomSheetDialogFragment(){
             waterItemViewModel.updateWaterItem(waterItem!!.id, day, gals)
         }
 
-        binding.theDate.setText("")
-        binding.theGallons.setText("")
+
 
         dismiss()
     }
